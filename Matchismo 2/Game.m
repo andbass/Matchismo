@@ -23,6 +23,7 @@
     
     if (self) {
         self.cardClass = cardClass;
+        self.cardsOnTable = [NSMutableArray new];
         
         Deck* deck = [cardClass createDeck];
         
@@ -64,17 +65,14 @@
     
     // check for match
     if ([self.selectedCards count] == self.cardsToMatch) {
-        
-        bool successfulMatch = false;
         NSInteger value = 0;
+        
         // we have a match!
         if ([self.cardClass isMatch:self.selectedCards value:&value]) {
             self.score += 1; // reverse penalty
             self.score += value;
             
             [self.selectedCards removeAllObjects];
-            
-            successfulMatch = true;
         }
     }
 }

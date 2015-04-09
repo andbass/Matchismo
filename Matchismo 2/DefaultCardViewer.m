@@ -58,12 +58,18 @@ UIVIEW_CONSTRUCTORS(setup)
     
     CGContextRef ref = UIGraphicsGetCurrentContext();
     
+    // Any unselected card is considered face down for the DefaultCard game
+    if (self.card.state == Open) {
+        UIImage* cardBack = [UIImage imageNamed:@"CardBack"];
+        
+        [cardBack drawInRect:self.imageRect];
+        return;
+    }
+    
     if (self.card.isFaceCard) {
         UIImage* front = [UIImage imageNamed:[self rankSym]];
         
-        CGRect rect = CGRectInset(self.bounds, self.bounds.size.width * BASE_FRONT_IMAGE_INSET_PERCENT, self.bounds.size.height * BASE_FRONT_IMAGE_INSET_PERCENT);
-        
-        [front drawInRect:rect];
+        [front drawInRect:self.imageRect];
     }
     
     [self drawCorners:ref];

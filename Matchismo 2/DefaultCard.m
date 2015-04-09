@@ -14,7 +14,7 @@
     Deck* deck = [Deck new];
     
     for (int suite = 0; suite < NUMBER_OF_SUITS; suite++) {
-        for (int rank = 1; rank < 11 + NUMBER_OF_FACES; rank++) {
+        for (int rank = 1; rank < 10 + NUMBER_OF_FACES; rank++) {
             DefaultCard* curCard = [[DefaultCard alloc] initWithSuite:suite withRank:rank];
             [deck.cards addObject:curCard];
         }
@@ -46,7 +46,6 @@
         }
         
         *value = increment;
-        
         return true;
     }
     

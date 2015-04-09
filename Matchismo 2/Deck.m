@@ -11,6 +11,16 @@
 
 @implementation Deck
 
+- (instancetype)init {
+    self = [super init];
+    
+    if (self) {
+        self.cards = [NSMutableArray new];
+    }
+    
+    return self;
+}
+
 - (Card*)popRandomCard {
     int index = arc4random() % [self.cards count];
     

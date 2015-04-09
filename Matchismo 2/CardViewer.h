@@ -21,13 +21,15 @@
 
 #define BASE_FRONT_IMAGE_INSET_PERCENT 0.2
 
-@interface CardViewer : UIView
+@interface CardViewer : UICollectionViewCell
 
 @property Card* card;
 
 @property (readonly) CGSize padding;
 @property (readonly) CGFloat fontSize;
+
 @property (readonly) CGSize imageInset;
+@property (readonly) CGRect imageRect;
 
 @property (readonly) NSDictionary* baseTextAttributes;
 

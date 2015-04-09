@@ -7,6 +7,7 @@
 //
 
 #import "CardViewer.h"
+#import "Macros.h"
 
 @implementation CardViewer
 
@@ -22,6 +23,12 @@
 
 - (CGFloat)fontSize {
     return BASE_FONT_SIZE * BASE_HEIGHT / self.bounds.size.height;
+}
+
+- (CGRect)imageRect {
+    return CGRectInset(self.bounds,
+                       self.bounds.size.width * BASE_FRONT_IMAGE_INSET_PERCENT,
+                       self.bounds.size.height * BASE_FRONT_IMAGE_INSET_PERCENT);
 }
 
 - (NSDictionary*)baseTextAttributes {
