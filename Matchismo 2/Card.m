@@ -30,7 +30,7 @@
 - (void)flip {
     if (self.state == Matched) return;
     
-    self.state = !self.state;
+    self.state = (self.state == Open) ? Selected : Open;
 }
 
 @end

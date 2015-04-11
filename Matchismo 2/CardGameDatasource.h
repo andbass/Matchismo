@@ -9,13 +9,16 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
+#import "CardGameDelegate.h"
+
 #import "Game.h"
 
 @interface CardGameDatasource : NSObject <UICollectionViewDataSource>
 
 @property UICollectionView* collectionView;
+
 @property Game* game;
 
-- (instancetype)initWithGame:(Game*)game withView:(UICollectionView*)view;
+- (instancetype)initWithGame:(Game*)game withDelegate:(CardGameDelegate*)delegate;
 
 @end

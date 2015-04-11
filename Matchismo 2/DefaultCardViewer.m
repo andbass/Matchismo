@@ -54,7 +54,7 @@ UIVIEW_CONSTRUCTORS(setup)
 }
 
 - (void)drawRect:(CGRect)rect {
-    [super drawRect:rect];
+    [super drawRect:rect withCardFill:(self.card.matched) ? [UIColor grayColor] : [UIColor whiteColor] ];
     
     CGContextRef ref = UIGraphicsGetCurrentContext();
     

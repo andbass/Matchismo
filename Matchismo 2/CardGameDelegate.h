@@ -9,8 +9,13 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
+#import "Game.h"
+
 @interface CardGameDelegate : NSObject <UICollectionViewDelegate>
 
+@property Game* game;
+@property NSMutableArray* viewsToBeAnimated;
 
+- (instancetype)initWithGame:(Game*)game;
 
 @end

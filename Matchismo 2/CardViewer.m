@@ -13,6 +13,7 @@
 
 - (void)setup {
     self.backgroundColor = nil;
+    
     self.opaque = false;
     self.contentMode = UIViewContentModeRedraw;
 }
@@ -22,7 +23,7 @@
 }
 
 - (CGFloat)fontSize {
-    return BASE_FONT_SIZE * BASE_HEIGHT / self.bounds.size.height;
+    return (CGFloat)BASE_FONT_SIZE / (CGFloat)BASE_HEIGHT * self.bounds.size.height;
 }
 
 - (CGRect)imageRect {
@@ -42,7 +43,7 @@
                         NSFontAttributeName : font };
 }
 
-- (void)drawRect:(CGRect)rect {
+- (void)drawRect:(CGRect)rect withCardFill:(UIColor*)cardFill {
     UIBezierPath* path = [UIBezierPath bezierPathWithRoundedRect:self.bounds
                                                    cornerRadius:[self calculateCornerRadius]];
     
@@ -50,7 +51,7 @@
     
     [path addClip];
     
-    [[UIColor whiteColor] setFill];
+    [cardFill setFill];
     [[UIColor blackColor] setStroke];
     
     [path fill];

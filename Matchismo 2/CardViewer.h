@@ -17,7 +17,7 @@
 
 #define BASE_PADDING_PERCENT 0.1
 
-#define BASE_FONT_SIZE 18
+#define BASE_FONT_SIZE 36
 
 #define BASE_FRONT_IMAGE_INSET_PERCENT 0.2
 
@@ -34,5 +34,7 @@
 @property (readonly) NSDictionary* baseTextAttributes;
 
 - (void)setup;
+
+- (void)drawRect:(CGRect)rect withCardFill:(UIColor*)cardFill;
 
 @end

@@ -24,6 +24,7 @@
     if (self) {
         self.cardClass = cardClass;
         self.cardsOnTable = [NSMutableArray new];
+        self.selectedCards = [NSMutableArray new];
         
         Deck* deck = [cardClass createDeck];
         
@@ -40,8 +41,7 @@
 - (void)selectCard:(NSInteger)index {
     Card* card = self.cardsOnTable[index];
     if (card.matched) return; // if already matched, no need to do anything with it.
-    
-    // if already flipped, let's assume the player is flipping it back
+
     [card flip];
     
     if (card.state == Open) {
@@ -59,7 +59,6 @@
         [self.selectedCards removeAllObjects];
     }
     
-    card.state = Selected;
     [self.selectedCards addObject:card];
     self.score -= 1;
     
@@ -71,6 +70,10 @@
         if ([self.cardClass isMatch:self.selectedCards value:&value]) {
             self.score += 1; // reverse penalty
             self.score += value;
+            
+            for (Card* card in self.selectedCards) {
+                card.state = Matched;
+            }
             
             [self.selectedCards removeAllObjects];
         }

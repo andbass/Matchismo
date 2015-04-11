@@ -11,12 +11,11 @@
 
 @implementation CardGameDatasource
 
-- (instancetype)initWithGame:(Game *)game withView:(UICollectionView*)view {
+- (instancetype)initWithGame:(Game *)game withDelegate:(CardGameDelegate*)delegate {
     self = [super init];
    
     if (self) {
         self.game = game;
-        self.collectionView = view;
     }
     
     return self;
@@ -31,10 +30,12 @@
 }
 
 - (UICollectionViewCell*)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-    CardViewer* cell = [self.collectionView dequeueReusableCellWithReuseIdentifier:@"Card" forIndexPath:indexPath];
+    CardViewer* cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"Card" forIndexPath:indexPath];
     
     NSInteger index = [indexPath item];
     cell.card = self.game.cardsOnTable[index];
+    
+    [cell setNeedsDisplay];
     
     return cell;
 }

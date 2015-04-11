@@ -75,4 +75,8 @@
     return self.rank == Ace;
 }
 
+- (NSString*)description {
+    return [NSString stringWithFormat:@"Suite: %ld\tRank: %ld\n", self.suite, self.rank];
+}
+
 @end
