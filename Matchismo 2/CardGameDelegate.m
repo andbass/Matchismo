@@ -38,7 +38,7 @@
     
     self.itemsAnimating += 1;
     
-    [UIView transitionWithView:viewer duration:0.75 options:UIViewAnimationOptionTransitionFlipFromRight animations:^{
+    [UIView transitionWithView:viewer duration:0.25 options:UIViewAnimationOptionTransitionFlipFromRight animations:^{
         [viewer setNeedsDisplay];
     } completion:^(BOOL fin) {
         [self cardViewerDoneAnimating:collectionView];
