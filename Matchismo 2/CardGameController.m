@@ -52,7 +52,6 @@
     BOOL couldAddCards = [self.game dealMoreCards:3];
     
     if (couldAddCards) {
-        //[self.game deselectAllCards];
         
         [self.collectionView performBatchUpdates:^{
             NSMutableArray* indexPaths = [NSMutableArray new];
@@ -64,9 +63,7 @@
             
             [self.collectionView insertItemsAtIndexPaths:indexPaths];
             
-        } completion:^(BOOL fin){
-            //[self.collectionView reloadData];
-        }];
+        } completion:nil];
     }
     
     [self updateScore];

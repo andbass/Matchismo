@@ -12,6 +12,7 @@
 @interface CardGameDelegate()
 
 @property id<UpdateProtocol> updater;
+@property NSInteger itemsAnimating;
 
 @end
 
@@ -35,10 +36,13 @@
    
     CardViewer* viewer = (CardViewer*)[collectionView cellForItemAtIndexPath:indexPath];
     
+    self.itemsAnimating += 1;
+    
     [UIView transitionWithView:viewer duration:0.75 options:UIViewAnimationOptionTransitionFlipFromRight animations:^{
         [viewer setNeedsDisplay];
     } completion:^(BOOL fin) {
-        [self clearMatchedCards:collectionView];
+        [self cardViewerDoneAnimating:collectionView];
+        
         [self.updater updateScore];
     }];
     
@@ -59,8 +63,16 @@
     [collectionView performBatchUpdates:^{
         [collectionView deleteItemsAtIndexPaths:pathsToDelete];
     } completion:^(BOOL fin){
-        //[collectionView reloadData];
+        [collectionView reloadData];
     }];
+}
+
+- (void)cardViewerDoneAnimating:(UICollectionView*)collectionView {
+    self.itemsAnimating -= 1;
+    
+    if (self.itemsAnimating <= 0) {
+        [self clearMatchedCards:collectionView];
+    }
 }
 
 @end

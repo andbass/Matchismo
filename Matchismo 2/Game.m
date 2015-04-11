@@ -69,7 +69,6 @@
     }
     
     [self.selectedCards addObject:card];
-    self.score -= 1;
     
     // check for match
     if ([self.selectedCards count] == self.cardsToMatch) {
@@ -77,7 +76,6 @@
         
         // we have a match!
         if ([self.cardClass isMatch:self.selectedCards value:&value]) {
-            self.score += 1; // reverse penalty
             self.score += value;
             
             for (Card* card in self.selectedCards) {
@@ -87,8 +85,12 @@
             }
             
             [self.selectedCards removeAllObjects];
+            
+            return;
         }
     }
+    
+    self.score -= 1;
 }
 
 - (BOOL)dealMoreCards:(NSInteger)cardsToDeal {
