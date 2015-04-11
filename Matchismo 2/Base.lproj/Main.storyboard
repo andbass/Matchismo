@@ -23,12 +23,15 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="izy-jO-99D">
-                                <rect key="frame" x="510" y="464" width="74" height="41"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P6F-VA-sbn">
+                                <rect key="frame" x="264" y="465" width="73" height="41"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                <state key="normal" title="History">
+                                <state key="normal" title="Redeal">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="redealCards:" destination="BYZ-38-t0r" eventType="touchUpInside" id="W4e-Ka-5dO"/>
+                                </connections>
                             </button>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="JWJ-UJ-hHX">
                                 <rect key="frame" x="16" y="20" width="568" height="443"/>
@@ -50,16 +53,25 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="izy-jO-99D">
+                                <rect key="frame" x="510" y="465" width="74" height="41"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <state key="normal" title="History">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.50196081399917603" blue="0.25098040699958801" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="2mR-0b-a8G" secondAttribute="bottom" constant="51" id="6Od-kT-sfS"/>
+                            <constraint firstItem="izy-jO-99D" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="COb-CR-EK5"/>
                             <constraint firstItem="2mR-0b-a8G" firstAttribute="top" secondItem="JWJ-UJ-hHX" secondAttribute="bottom" constant="8" id="G5p-OZ-fdd"/>
-                            <constraint firstItem="JWJ-UJ-hHX" firstAttribute="trailing" secondItem="izy-jO-99D" secondAttribute="trailing" id="J1A-mA-aBw"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="izy-jO-99D" secondAttribute="bottom" constant="45" id="IPt-m7-hqf"/>
                             <constraint firstItem="JWJ-UJ-hHX" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="Qnk-AL-jdb"/>
                             <constraint firstItem="JWJ-UJ-hHX" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="YpR-Oo-jNJ"/>
+                            <constraint firstAttribute="centerX" secondItem="P6F-VA-sbn" secondAttribute="centerX" id="eDj-gr-XAf"/>
                             <constraint firstItem="JWJ-UJ-hHX" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="nsc-rP-fWS"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="izy-jO-99D" secondAttribute="bottom" constant="46" id="vy8-QQ-iYV"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="P6F-VA-sbn" secondAttribute="bottom" constant="45" id="u6u-16-INU"/>
                             <constraint firstItem="JWJ-UJ-hHX" firstAttribute="leading" secondItem="2mR-0b-a8G" secondAttribute="leading" id="wI4-Qj-VtM"/>
                         </constraints>
                     </view>

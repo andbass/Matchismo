@@ -11,6 +11,7 @@
 
 @interface Game()
 
+@property Deck* deck;
 @property (readwrite) NSInteger score;
 
 @end
@@ -26,10 +27,10 @@
         self.cardsOnTable = [NSMutableArray new];
         self.selectedCards = [NSMutableArray new];
         
-        Deck* deck = [cardClass createDeck];
+        self.deck = [cardClass createDeck];
         
         for (int i = 0; i < cards; i++) {
-            [self.cardsOnTable addObject:[deck popRandomCard]];
+            [self.cardsOnTable addObject:[self.deck popRandomCard]];
         }
         
         self.cardsToMatch = [cardClass cardsInMatch];
@@ -78,6 +79,16 @@
             [self.selectedCards removeAllObjects];
         }
     }
+}
+
+- (BOOL)dealMoreCards:(NSInteger)cardsToDeal {
+    if ([self.deck.cards count] < cardsToDeal) return false;
+    
+    for (int i = 0; i < cardsToDeal; i++) {
+        [self.cardsOnTable addObject:[self.deck popRandomCard]];
+    }
+    
+    return true;
 }
 
 @end

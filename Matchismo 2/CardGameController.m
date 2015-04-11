@@ -45,4 +45,23 @@
     self.collectionView.delegate = self.delegate;
 }
 
+- (IBAction)redealCards:(UIButton *)sender {
+    NSInteger previousNumberOfCards = [self.game.cardsOnTable count];
+    BOOL couldAddCards = [self.game dealMoreCards:3];
+    
+    if (couldAddCards) {
+        [self.collectionView performBatchUpdates:^{
+            NSMutableArray* indexPaths = [NSMutableArray new];
+            
+            for (NSInteger i = previousNumberOfCards; i < previousNumberOfCards + 3; i++) {
+                [indexPaths addObject:[NSIndexPath indexPathForItem:i
+                                                          inSection:0]];
+            }
+            
+            [self.collectionView insertItemsAtIndexPaths:indexPaths];
+            
+        } completion:nil];
+    }
+}
+
 @end

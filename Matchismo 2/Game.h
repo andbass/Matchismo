@@ -24,6 +24,6 @@
                 cardsOnTable:(NSInteger)cards;
 
 - (void)selectCard:(NSInteger)index;
-
+- (BOOL)dealMoreCards:(NSInteger)cardsToDeal;
 
 @end
