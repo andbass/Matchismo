@@ -42,7 +42,7 @@
         }
         
         if (suiteMatch) {
-            increment += 1;
+            increment += 2;
         }
         
         *value = increment;

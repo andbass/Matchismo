@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "UpdateProtocol.h"
 
-@interface CardGameController : UIViewController
+@interface CardGameController : UIViewController <UpdateProtocol>
 
 @end

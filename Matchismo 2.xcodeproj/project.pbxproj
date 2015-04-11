@@ -37,6 +37,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		420132B61AD9CF3E005E03EB /* UpdateProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UpdateProtocol.h; sourceTree = "<group>"; };
 		42A1EEA31AD37E5300B71472 /* Matchismo 2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Matchismo 2.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		42A1EEA71AD37E5300B71472 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		42A1EEA81AD37E5300B71472 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -199,9 +200,10 @@
 		42A1EEDD1AD3822400B71472 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				42D63A851AD73C6300AA5105 /* Collection View Protocols */,
+				42D63A851AD73C6300AA5105 /* Collection View */,
 				42D63A821AD73B6D00AA5105 /* CardGameController.h */,
 				42D63A831AD73B6D00AA5105 /* CardGameController.m */,
+				420132B61AD9CF3E005E03EB /* UpdateProtocol.h */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -224,7 +226,7 @@
 			name = Abstract;
 			sourceTree = "<group>";
 		};
-		42D63A851AD73C6300AA5105 /* Collection View Protocols */ = {
+		42D63A851AD73C6300AA5105 /* Collection View */ = {
 			isa = PBXGroup;
 			children = (
 				42D63A861AD73C7200AA5105 /* CardGameDelegate.h */,
@@ -232,7 +234,7 @@
 				42D63A891AD73D4800AA5105 /* CardGameDatasource.h */,
 				42D63A8A1AD73D4800AA5105 /* CardGameDatasource.m */,
 			);
-			name = "Collection View Protocols";
+			name = "Collection View";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

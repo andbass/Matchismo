@@ -30,7 +30,7 @@
 - (void)selectCard:(NSInteger)index;
 
 // Adds more cards from the deck onto the table.
-// Incurs a penalty, a point is deducted from the player's score 
+// Incurs a penalty, a point is deducted from the player's score for each card added
 - (BOOL)dealMoreCards:(NSInteger)cardsToDeal;
 
 - (void)clearMatchedCards;

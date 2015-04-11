@@ -32,8 +32,10 @@
     
     self.game = [[Game alloc] initWithCard:DefaultCard.class cardsOnTable:4];
     
-    self.delegate = [[CardGameDelegate alloc] initWithGame:self.game];
+    self.delegate = [[CardGameDelegate alloc] initWithGame:self.game updater:self];
     self.dataSource = [[CardGameDatasource alloc] initWithGame:self.game];
+    
+    [self updateScore];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -50,6 +52,8 @@
     BOOL couldAddCards = [self.game dealMoreCards:3];
     
     if (couldAddCards) {
+        //[self.game deselectAllCards];
+        
         [self.collectionView performBatchUpdates:^{
             NSMutableArray* indexPaths = [NSMutableArray new];
             
@@ -60,8 +64,16 @@
             
             [self.collectionView insertItemsAtIndexPaths:indexPaths];
             
-        } completion:nil];
+        } completion:^(BOOL fin){
+            //[self.collectionView reloadData];
+        }];
     }
+    
+    [self updateScore];
+}
+
+- (void)updateScore {
+    self.scoreLabel.text = [NSString stringWithFormat:@"Score: %ld", self.game.score];
 }
 
 @end

@@ -9,14 +9,20 @@
 #import "CardGameDelegate.h"
 #import "CardViewer.h"
 
+@interface CardGameDelegate()
+
+@property id<UpdateProtocol> updater;
+
+@end
+
 @implementation CardGameDelegate
 
-- (instancetype)initWithGame:(Game *)game {
+- (instancetype)initWithGame:(Game *)game updater:(id<UpdateProtocol>)updater {
     self = [super init];
     
     if (self) {
         self.game = game;
-        self.viewsToBeAnimated = [NSMutableArray new];
+        self.updater = updater;
     }
     
     return self;
@@ -28,9 +34,14 @@
     [self.game selectCard:index];
    
     CardViewer* viewer = (CardViewer*)[collectionView cellForItemAtIndexPath:indexPath];
-    [viewer setNeedsDisplay];
     
-    [self clearMatchedCards:collectionView];
+    [UIView transitionWithView:viewer duration:0.75 options:UIViewAnimationOptionTransitionFlipFromRight animations:^{
+        [viewer setNeedsDisplay];
+    } completion:^(BOOL fin) {
+        [self clearMatchedCards:collectionView];
+        [self.updater updateScore];
+    }];
+    
 }
 
 - (void)clearMatchedCards:(UICollectionView*) collectionView {
@@ -47,7 +58,9 @@
     
     [collectionView performBatchUpdates:^{
         [collectionView deleteItemsAtIndexPaths:pathsToDelete];
-    } completion:nil];
+    } completion:^(BOOL fin){
+        //[collectionView reloadData];
+    }];
 }
 
 @end

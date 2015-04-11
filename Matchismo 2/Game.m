@@ -96,6 +96,7 @@
     
     for (int i = 0; i < cardsToDeal; i++) {
         [self.cardsOnTable addObject:[self.deck popRandomCard]];
+        self.score -= 1;
     }
     
     return true;

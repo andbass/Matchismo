@@ -9,13 +9,14 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
+#import "UpdateProtocol.h"
+
 #import "Game.h"
 
 @interface CardGameDelegate : NSObject <UICollectionViewDelegate>
 
 @property Game* game;
-@property NSMutableArray* viewsToBeAnimated;
 
-- (instancetype)initWithGame:(Game*)game;
+- (instancetype)initWithGame:(Game*)game updater:(id <UpdateProtocol>)updater;
 
 @end

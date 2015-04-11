@@ -31,11 +31,13 @@ UIVIEW_CONSTRUCTORS(setup)
         NSInteger index = self.card.rank - 11;
         
         return FACE_SYM[index];
-    } else if (self.card.isAceCard) {
-        return @"A";
-    } else {
-        return [NSString stringWithFormat:@"%ld", (long)self.card.rank];
     }
+        
+    if (self.card.isAceCard) {
+        return @"A";
+    }
+    
+    return [NSString stringWithFormat:@"%ld", self.card.rank];
 }
 
 - (NSString*)cornerSym {
@@ -69,13 +71,8 @@ UIVIEW_CONSTRUCTORS(setup)
     }
     
     if (self.card.isFaceCard) {
-        UIImage* front;
-        
-        if (self.card.matched) {
-            front = [UIImage imageNamed:[self rankSym] withColor:cardFill];
-        } else {
-            front = [UIImage imageNamed:[self rankSym]];
-        }
+        UIImage* front = (self.card.matched) ? [UIImage imageNamed:[self rankSym] withColor:cardFill]
+                                             : [UIImage imageNamed:[self rankSym]];
         
         [front drawInRect:self.imageRect];
     }
