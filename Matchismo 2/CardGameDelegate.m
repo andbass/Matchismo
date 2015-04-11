@@ -28,10 +28,6 @@
     
     [self.game selectCard:index];
     
-    if (!cardViewer.card.matched) {
-        [self.viewsToBeAnimated addObject:cardViewer];
-    }
-    
     [collectionView reloadData];
 }
 

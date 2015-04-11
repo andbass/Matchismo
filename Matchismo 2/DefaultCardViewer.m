@@ -8,6 +8,7 @@
 
 #import "DefaultCardViewer.h"
 #import "Macros.h"
+#import "ImageHelper.h"
 
 @implementation DefaultCardViewer
 
@@ -54,7 +55,8 @@ UIVIEW_CONSTRUCTORS(setup)
 }
 
 - (void)drawRect:(CGRect)rect {
-    [super drawRect:rect withCardFill:(self.card.matched) ? [UIColor grayColor] : [UIColor whiteColor] ];
+    UIColor* cardFill = (self.card.matched) ? [UIColor grayColor] : [UIColor whiteColor];
+    [super drawRect:rect withCardFill:cardFill];
     
     CGContextRef ref = UIGraphicsGetCurrentContext();
     
@@ -67,7 +69,13 @@ UIVIEW_CONSTRUCTORS(setup)
     }
     
     if (self.card.isFaceCard) {
-        UIImage* front = [UIImage imageNamed:[self rankSym]];
+        UIImage* front;
+        
+        if (self.card.matched) {
+            front = [UIImage imageNamed:[self rankSym] withColor:cardFill];
+        } else {
+            front = [UIImage imageNamed:[self rankSym]];
+        }
         
         [front drawInRect:self.imageRect];
     }
