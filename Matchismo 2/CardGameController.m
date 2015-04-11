@@ -30,10 +30,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.game = [[Game alloc] initWithCard:DefaultCard.class cardsOnTable:12];
+    self.game = [[Game alloc] initWithCard:DefaultCard.class cardsOnTable:4];
     
     self.delegate = [[CardGameDelegate alloc] initWithGame:self.game];
-    self.dataSource = [[CardGameDatasource alloc] initWithGame:self.game withDelegate:self.delegate];
+    self.dataSource = [[CardGameDatasource alloc] initWithGame:self.game];
 }
 
 - (void)viewWillAppear:(BOOL)animated {

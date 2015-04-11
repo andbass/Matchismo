@@ -19,6 +19,6 @@
 
 @property Game* game;
 
-- (instancetype)initWithGame:(Game*)game withDelegate:(CardGameDelegate*)delegate;
+- (instancetype)initWithGame:(Game*)game;
 
 @end

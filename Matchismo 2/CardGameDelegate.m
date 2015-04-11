@@ -24,11 +24,30 @@
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     NSInteger index = [indexPath item];
-    CardViewer* cardViewer = (CardViewer*)[collectionView cellForItemAtIndexPath:indexPath];
     
     [self.game selectCard:index];
+   
+    CardViewer* viewer = (CardViewer*)[collectionView cellForItemAtIndexPath:indexPath];
+    [viewer setNeedsDisplay];
     
-    [collectionView reloadData];
+    [self clearMatchedCards:collectionView];
+}
+
+- (void)clearMatchedCards:(UICollectionView*) collectionView {
+    NSMutableArray* pathsToDelete = [NSMutableArray new];
+    
+    for (Card* matchedCard in self.game.recentlyMatchedCards) {
+        NSInteger index = [self.game.cardsOnTable indexOfObject:matchedCard];
+        NSIndexPath* path = [NSIndexPath indexPathForItem:index inSection:0];
+        
+        [pathsToDelete addObject:path];
+    }
+    
+    [self.game clearMatchedCards];
+    
+    [collectionView performBatchUpdates:^{
+        [collectionView deleteItemsAtIndexPaths:pathsToDelete];
+    } completion:nil];
 }
 
 @end

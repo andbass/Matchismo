@@ -11,7 +11,7 @@
 
 @implementation CardGameDatasource
 
-- (instancetype)initWithGame:(Game *)game withDelegate:(CardGameDelegate*)delegate {
+- (instancetype)initWithGame:(Game *)game {
     self = [super init];
    
     if (self) {

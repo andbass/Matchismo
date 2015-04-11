@@ -12,7 +12,9 @@
 @interface Game()
 
 @property Deck* deck;
+
 @property (readwrite) NSInteger score;
+@property (readwrite) NSMutableArray* recentlyMatchedCards;
 
 @end
 
@@ -24,8 +26,10 @@
     
     if (self) {
         self.cardClass = cardClass;
+        
         self.cardsOnTable = [NSMutableArray new];
         self.selectedCards = [NSMutableArray new];
+        self.recentlyMatchedCards = [NSMutableArray new];
         
         self.deck = [cardClass createDeck];
         
@@ -40,6 +44,10 @@
 }
 
 - (void)selectCard:(NSInteger)index {
+    // This method call is a bit redudant, since the matched cards should be cleared by the CardGameDelegate when deleting matched cards from the UI.
+    // But, calling this method here fully decouples the UI from the model, hence why it is called again here
+    [self clearMatchedCards];
+    
     Card* card = self.cardsOnTable[index];
     if (card.matched) return; // if already matched, no need to do anything with it.
 
@@ -74,6 +82,8 @@
             
             for (Card* card in self.selectedCards) {
                 card.state = Matched;
+                
+                [self.recentlyMatchedCards addObject:card];
             }
             
             [self.selectedCards removeAllObjects];
@@ -89,6 +99,14 @@
     }
     
     return true;
+}
+
+- (void)clearMatchedCards {
+    for (Card* matchedCard in self.recentlyMatchedCards) {
+        [self.cardsOnTable removeObject:matchedCard];
+    }
+    
+    [self.recentlyMatchedCards removeAllObjects];
 }
 
 @end
