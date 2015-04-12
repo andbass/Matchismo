@@ -25,6 +25,7 @@
 @end
 
 #define DISTANCE_BETWEEN_LINES 5
+#define VERTICAL_GAP 5
 
 @implementation SetCardViewer
 
@@ -37,22 +38,33 @@ UIVIEW_CONSTRUCTORS(setup);
 - (void)drawRect:(CGRect)rect {
     [super drawRect:rect];
     
-    [self.fillColor setFill];
-    [self.strokeColor setStroke];
-    
     UIBezierPath* path = self.shape;
     
-    [path stroke];
-    [self drawShading:path];
+    CGFloat gap = path.bounds.size.height + VERTICAL_GAP;
+    CGFloat percentageOffset = self.card.rank / 2.0 - 0.5;
+    CGFloat offset = percentageOffset * gap;
+    
+    [path applyTransform:CGAffineTransformMakeTranslation(0.0, -offset)];
+    
+    for (int i = 0; i < self.card.rank; i++) {
+        [self drawShading:path];
+        [path applyTransform:CGAffineTransformMakeTranslation(0.0, gap)];
+    }
 }
 
 - (void)drawShading:(UIBezierPath*)path {
+    CGContextRef ref = UIGraphicsGetCurrentContext();
+    
     if (self.card.shading == Solid) {
+        [self.fillColor setFill];
         [path fill];
+        
         return;
     }
     
     if (self.card.shading == Striped) {
+        CGContextSaveGState(ref);
+        
         [path addClip];
         UIBezierPath* lines = [UIBezierPath new];
         
@@ -61,8 +73,14 @@ UIVIEW_CONSTRUCTORS(setup);
             [lines addLineToPoint:CGPointMake(x, self.bounds.size.height)];
         }
         
+        [self.fillColor setStroke];
         [lines stroke];
+        
+        CGContextRestoreGState(ref);
     }
+        
+    [self.strokeColor setStroke];
+    [path stroke];
 }
 
 - (UIBezierPath*)shape {
@@ -87,6 +105,8 @@ UIVIEW_CONSTRUCTORS(setup);
 - (UIBezierPath*)squigglePath {
     UIBezierPath* path = [UIBezierPath new];
     
+    path = [UIBezierPath bezierPathWithRect:CGRectMake(0, 0, 10, 10)];
+    
     return path;
 }
 
@@ -104,11 +124,11 @@ UIVIEW_CONSTRUCTORS(setup);
 }
 
 - (UIColor*)fillColor {
-    CGFloat hue, sat, bright;
+    CGFloat hue, sat, bright, alpha;
     
-    [self.strokeColor getHue:&hue saturation:&sat brightness:&bright alpha:nil];
+    [self.strokeColor getHue:&hue saturation:&sat brightness:&bright alpha:&alpha];
     
-    return [UIColor colorWithHue:hue saturation:(sat - 0.2) brightness:(bright + 0.2) alpha:1.0];
+    return [UIColor colorWithHue:hue saturation:(sat - 0.2) brightness:1.0 alpha:1.0];
 }
 
 - (UIColor*)strokeColor {
