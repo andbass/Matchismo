@@ -13,7 +13,6 @@
 
 @property Deck* deck;
 
-@property (readwrite) NSInteger score;
 @property (readwrite) NSMutableArray* recentlyMatchedCards;
 
 @end

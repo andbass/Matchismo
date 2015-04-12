@@ -70,7 +70,7 @@
 - (void)cardViewerDoneAnimating:(UICollectionView*)collectionView {
     self.itemsAnimating -= 1;
     
-    if (self.itemsAnimating <= 0) {
+    if (self.itemsAnimating == 0) {
         [self clearMatchedCards:collectionView];
     }
 }

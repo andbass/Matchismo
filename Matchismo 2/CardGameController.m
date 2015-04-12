@@ -25,12 +25,14 @@
 
 @end
 
+#define NUMBER_OF_CARDS 12
+
 @implementation CardGameController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.game = [[Game alloc] initWithCard:DefaultCard.class cardsOnTable:4];
+    self.game = [[Game alloc] initWithCard:DefaultCard.class cardsOnTable:NUMBER_OF_CARDS];
     
     self.delegate = [[CardGameDelegate alloc] initWithGame:self.game updater:self];
     self.dataSource = [[CardGameDatasource alloc] initWithGame:self.game];
@@ -49,28 +51,43 @@
 
 - (IBAction)redealCards:(UIButton *)sender {
     NSInteger previousNumberOfCards = [self.game.cardsOnTable count];
-    BOOL couldAddCards = [self.game dealMoreCards:3];
+    [self.game.cardsOnTable removeAllObjects];
     
-    if (couldAddCards) {
+    [self.collectionView performBatchUpdates:^{
+        NSMutableArray* pathsToDelete = [NSMutableArray new];
         
-        [self.collectionView performBatchUpdates:^{
-            NSMutableArray* indexPaths = [NSMutableArray new];
-            
-            for (NSInteger i = previousNumberOfCards; i < previousNumberOfCards + 3; i++) {
-                [indexPaths addObject:[NSIndexPath indexPathForItem:i
-                                                          inSection:0]];
-            }
-            
-            [self.collectionView insertItemsAtIndexPaths:indexPaths];
-            
-        } completion:nil];
-    }
+        for (int i = 0; i < previousNumberOfCards; i++) {
+            NSIndexPath* path = [NSIndexPath indexPathForItem:i inSection:0];
+            [pathsToDelete addObject:path];
+        }
+        
+        [self.collectionView deleteItemsAtIndexPaths:pathsToDelete];
+    } completion:nil];
     
+    [self performSelector:@selector(addCards) withObject:nil afterDelay:0.75];
+    
+    self.game.score = 0;
     [self updateScore];
 }
 
 - (void)updateScore {
     self.scoreLabel.text = [NSString stringWithFormat:@"Score: %ld", self.game.score];
+}
+
+- (void)addCards {
+    if ([self.game dealMoreCards:NUMBER_OF_CARDS]) {
+        [self.collectionView performBatchUpdates:^{
+            NSMutableArray* pathsToAdd = [NSMutableArray new];
+            
+            for (int i = 0; i < NUMBER_OF_CARDS; i++) {
+                NSIndexPath* path = [NSIndexPath indexPathForItem:i inSection:0];
+                
+                [pathsToAdd addObject:path];
+            }
+            
+            [self.collectionView insertItemsAtIndexPaths:pathsToAdd];
+        } completion:nil];
+    }
 }
 
 @end

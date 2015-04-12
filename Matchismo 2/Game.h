@@ -20,7 +20,7 @@
 // Upon selection of another card, this array is cleared
 @property (readonly) NSMutableArray* recentlyMatchedCards;
 
-@property (readonly) NSInteger score;
+@property NSInteger score;
 
 @property Class cardClass;
 
