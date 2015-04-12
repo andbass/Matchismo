@@ -51,20 +51,15 @@
     [super drawRect:rect];
     
     UIBezierPath* path = [UIBezierPath bezierPathWithRoundedRect:self.bounds
-                                                   cornerRadius:[self calculateCornerRadius]];
-    
-    path.lineWidth = BASE_STROKE_WIDTH / self.bounds.size.height;
+                                                   cornerRadius:self.cornerRadius];
     
     [path addClip];
     
     [fillColor setFill];
-    [[UIColor blackColor] setStroke];
-    
     [path fill];
-    [path stroke];
 }
 
-- (CGFloat)calculateCornerRadius {
+- (CGFloat)cornerRadius {
     CGFloat ratio = self.bounds.size.height / BASE_HEIGHT;
     
     return BASE_RADIUS * ratio;

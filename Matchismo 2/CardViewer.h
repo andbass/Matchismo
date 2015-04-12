@@ -10,7 +10,6 @@
 #import "Card.h"
 
 #define BASE_RADIUS 12
-#define BASE_STROKE_WIDTH 4.0
 
 #define BASE_HEIGHT 180
 #define BASE_WIDTH 115
@@ -30,6 +29,8 @@
 
 @property (readonly) CGSize imageInset;
 @property (readonly) CGRect imageRect;
+
+@property (readonly) CGFloat cornerRadius;
 
 @property (readonly) NSDictionary* baseTextAttributes;
 

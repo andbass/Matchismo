@@ -40,7 +40,7 @@
     SetCard* cardTwo = cards[1];
     SetCard* cardThree = cards[2];
     
-    // TODO FIX ALL OF THIS AND MAKE IT LOOK LIKE NOT CRAP
+    // TODO FIX ALL OF THIS
     bool numberSet = (cardOne.rank == cardTwo.rank && cardTwo.rank == cardThree.rank && cardOne.rank == cardThree.rank)
                    || (cardOne.rank != cardTwo.rank && cardTwo.rank != cardThree.rank && cardOne.rank != cardThree.rank);
     

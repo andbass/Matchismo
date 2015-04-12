@@ -149,7 +149,7 @@ UIVIEW_CONSTRUCTORS(setup);
 - (UIBezierPath*)rectanglePath {
     CGRect rect = CGRectMake(0.2, 0.4, 0.6, 0.2);
     
-    UIBezierPath* path = [UIBezierPath bezierPathWithRoundedRect:rect cornerRadius:4];
+    UIBezierPath* path = [UIBezierPath bezierPathWithRoundedRect:rect cornerRadius:self.cornerRadius];
     [path applyTransform:self.scaleMatrix];
     
     return path;
