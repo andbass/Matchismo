@@ -84,7 +84,6 @@
             }
             
             [self.selectedCards removeAllObjects];
-            
             return;
         }
     }

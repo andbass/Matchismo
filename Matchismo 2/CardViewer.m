@@ -44,6 +44,12 @@
 }
 
 - (void)drawRect:(CGRect)rect {
+    [self drawRect:rect cardColor:[UIColor whiteColor]];
+}
+
+- (void)drawRect:(CGRect)rect cardColor:(UIColor*)fillColor {
+    [super drawRect:rect];
+    
     UIBezierPath* path = [UIBezierPath bezierPathWithRoundedRect:self.bounds
                                                    cornerRadius:[self calculateCornerRadius]];
     
@@ -51,7 +57,7 @@
     
     [path addClip];
     
-    [[UIColor whiteColor] setFill];
+    [fillColor setFill];
     [[UIColor blackColor] setStroke];
     
     [path fill];

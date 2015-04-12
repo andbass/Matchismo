@@ -44,7 +44,9 @@ UIVIEW_CONSTRUCTORS(setup)
     return [NSString stringWithFormat:@"%@\n%@", [self rankSym], [self suiteSym]];
 }
 
-- (void)drawCorners:(CGContextRef)ref {
+- (void)drawCorners {
+    CGContextRef ref = UIGraphicsGetCurrentContext();
+    
     NSAttributedString* corner = [[NSAttributedString alloc] initWithString:[self cornerSym] attributes:self.baseTextAttributes];
     CGPoint origin = CGPointMake(self.padding.width, self.padding.height);
     
@@ -58,8 +60,6 @@ UIVIEW_CONSTRUCTORS(setup)
 
 - (void)drawRect:(CGRect)rect {
     [super drawRect:rect];
-    
-    CGContextRef ref = UIGraphicsGetCurrentContext();
     
     // Any unselected card is considered face down for the DefaultCard game
     if (self.card.state == Open) {
@@ -75,7 +75,7 @@ UIVIEW_CONSTRUCTORS(setup)
         [front drawInRect:self.imageRect];
     }
     
-    [self drawCorners:ref];
+    [self drawCorners];
 }
 
 @end

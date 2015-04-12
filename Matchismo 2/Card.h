@@ -24,7 +24,6 @@ typedef NS_ENUM(NSInteger, State) {
 + (NSInteger)cardsInMatch;
 
 @property State state;
-
 @property (readonly) BOOL matched;
 
 - (void)flip;

@@ -36,11 +36,13 @@ UIVIEW_CONSTRUCTORS(setup);
 }
 
 - (void)drawRect:(CGRect)rect {
-    [super drawRect:rect];
+    [super drawRect:rect cardColor:(self.card.state == Open) ? [UIColor whiteColor] : [UIColor grayColor]];
     
     UIBezierPath* path = self.shape;
+    path.lineWidth = 2.0;
     
     CGFloat gap = path.bounds.size.height + VERTICAL_GAP;
+    
     CGFloat percentageOffset = self.card.rank / 2.0 - 0.5;
     CGFloat offset = percentageOffset * gap;
     
@@ -64,9 +66,10 @@ UIVIEW_CONSTRUCTORS(setup);
     
     if (self.card.shading == Striped) {
         CGContextSaveGState(ref);
-        
         [path addClip];
+        
         UIBezierPath* lines = [UIBezierPath new];
+        lines.lineWidth = 1.0;
         
         for (int x = 0; x < self.bounds.size.width; x += DISTANCE_BETWEEN_LINES) {
             [lines moveToPoint:CGPointMake(x, 0)];
@@ -102,10 +105,43 @@ UIVIEW_CONSTRUCTORS(setup);
     return path;
 }
 
+// Adapted from: http://stackoverflow.com/questions/25387940/how-to-draw-a-perfect-squiggle-in-set-card-game-with-objective-c
 - (UIBezierPath*)squigglePath {
     UIBezierPath* path = [UIBezierPath new];
     
-    path = [UIBezierPath bezierPathWithRect:CGRectMake(0, 0, 10, 10)];
+    [path moveToPoint:CGPointMake(0.05, 0.40)];
+    
+    [path addCurveToPoint:CGPointMake(0.35,   0.25)
+            controlPoint1:CGPointMake(0.09,   0.15)
+            controlPoint2:CGPointMake(0.18,   0.10)];
+    
+    [path addCurveToPoint:CGPointMake(0.75,   0.30)
+            controlPoint1:CGPointMake(0.40,   0.30)
+            controlPoint2:CGPointMake(0.60,   0.45)];
+    
+    [path addCurveToPoint:CGPointMake(0.97,   0.35)
+            controlPoint1:CGPointMake(0.87,   0.15)
+            controlPoint2:CGPointMake(0.98,   0.00)];
+    
+    [path addCurveToPoint:CGPointMake(0.45,   0.85)
+            controlPoint1:CGPointMake(0.95,   1.10)
+            controlPoint2:CGPointMake(0.50,   0.95)];
+    
+    [path addCurveToPoint:CGPointMake(0.25,   0.85)
+            controlPoint1:CGPointMake(0.40,   0.80)
+            controlPoint2:CGPointMake(0.35,   0.75)];
+    
+    [path addCurveToPoint:CGPointMake(0.05,   0.40)
+            controlPoint1:CGPointMake(0.00,   1.10)
+            controlPoint2:CGPointMake(0.005,  0.60)];
+    
+    [path applyTransform:self.scaleMatrix];
+    [path applyTransform:CGAffineTransformMakeScale(0.6, 0.3)];
+    
+    CGPoint beginningPoint = { self.bounds.size.width * 0.05, self.bounds.size.height * 0.05 };
+    
+    [path applyTransform:CGAffineTransformMakeTranslation(self.bounds.size.width / 2.0 - beginningPoint.x, self.bounds.size.height / 2.0 - beginningPoint.y)];
+    [path applyTransform:CGAffineTransformMakeTranslation(-path.bounds.size.width / 2.0, -path.bounds.size.height / 2.0)];
     
     return path;
 }
