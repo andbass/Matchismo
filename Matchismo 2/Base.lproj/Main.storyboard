@@ -142,7 +142,6 @@
                                 </state>
                                 <connections>
                                     <action selector="addMoreCards:" destination="xdf-hU-fya" eventType="touchUpInside" id="j8U-VW-4Fe"/>
-                                    <action selector="redealCards:" destination="xdf-hU-fya" eventType="touchUpInside" id="hKw-Jb-qJq"/>
                                 </connections>
                             </button>
                         </subviews>

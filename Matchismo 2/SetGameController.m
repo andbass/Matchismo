@@ -10,7 +10,7 @@
 
 #import "SetCard.h"
 
-#define NUMBER_OF_CARDS 12
+#define NUMBER_OF_CARDS 3
 
 @implementation SetGameController
 
@@ -19,6 +19,7 @@
 }
 
 - (IBAction)addMoreCards:(UIButton *)sender {
+    [self appendCards:3 scorePenalty:true];
 }
 
 @end

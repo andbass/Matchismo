@@ -33,6 +33,8 @@
     return deck;
 }
 
+#define SCORE_VALUE 6
+
 + (BOOL)isMatch:(NSArray *)cards value:(NSInteger *)value {
     SetCard* cardOne = cards[0];
     SetCard* cardTwo = cards[1];
@@ -52,7 +54,7 @@
                   || (cardOne.color != cardTwo.color && cardTwo.color != cardThree.color && cardOne.color != cardThree.color);
     
     if (numberSet && symbolSet && shadingSet && colorSet) {
-        *value += 4;
+        *value += SCORE_VALUE;
         return true;
     }
     

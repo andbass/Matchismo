@@ -39,4 +39,24 @@
     self.scoreLabel.text = [NSString stringWithFormat:@"Score: %ld", self.game.score];
 }
 
+- (void)appendCards:(NSInteger)cards scorePenalty:(BOOL)penalty {
+    NSInteger previousNumberOfCards = [self.game.cardsOnTable count];
+    
+    if ([self.game dealMoreCards:cards scorePenalty:penalty]) {
+        [self.collectionView performBatchUpdates:^{
+            NSMutableArray* pathsToAdd = [NSMutableArray new];
+            
+            for (NSInteger i = previousNumberOfCards; i < previousNumberOfCards + cards; i++) {
+                NSIndexPath* path = [NSIndexPath indexPathForItem:i inSection:0];
+                
+                [pathsToAdd addObject:path];
+            }
+            
+            [self.collectionView insertItemsAtIndexPaths:pathsToAdd];
+        } completion:nil];
+        
+        [self updateScore];
+    }
+}
+
 @end

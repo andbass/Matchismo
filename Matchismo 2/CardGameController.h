@@ -28,4 +28,6 @@
 
 - (Game*)generateGame;
 
+- (void)appendCards:(NSInteger)cards scorePenalty:(BOOL)penalty;
+
 @end

@@ -31,28 +31,12 @@
         [self.collectionView deleteItemsAtIndexPaths:pathsToDelete];
     } completion:^(BOOL fin) {
         if (fin) {
-            [self addCards];
+            [self appendCards:NUMBER_OF_CARDS scorePenalty:false];
         }
     }];
     
     self.game.score = 0;
     [self updateScore];
-}
-
-- (void)addCards {
-    if ([self.game dealMoreCards:NUMBER_OF_CARDS scorePenalty:false]) {
-        [self.collectionView performBatchUpdates:^{
-            NSMutableArray* pathsToAdd = [NSMutableArray new];
-            
-            for (int i = 0; i < NUMBER_OF_CARDS; i++) {
-                NSIndexPath* path = [NSIndexPath indexPathForItem:i inSection:0];
-                
-                [pathsToAdd addObject:path];
-            }
-            
-            [self.collectionView insertItemsAtIndexPaths:pathsToAdd];
-        } completion:nil];
-    }
 }
 
 @end
