@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		420132BB1ADAEB9F005E03EB /* SetCard.m in Sources */ = {isa = PBXBuildFile; fileRef = 420132BA1ADAEB9F005E03EB /* SetCard.m */; };
+		420132BF1ADAEDDB005E03EB /* DefaultGameController.m in Sources */ = {isa = PBXBuildFile; fileRef = 420132BE1ADAEDDB005E03EB /* DefaultGameController.m */; };
 		42A1EEA91AD37E5300B71472 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 42A1EEA81AD37E5300B71472 /* main.m */; };
 		42A1EEAC1AD37E5300B71472 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 42A1EEAB1AD37E5300B71472 /* AppDelegate.m */; };
 		42A1EEB21AD37E5300B71472 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 42A1EEB01AD37E5300B71472 /* Main.storyboard */; };
@@ -38,6 +40,10 @@
 
 /* Begin PBXFileReference section */
 		420132B61AD9CF3E005E03EB /* UpdateProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UpdateProtocol.h; sourceTree = "<group>"; };
+		420132B91ADAEB9F005E03EB /* SetCard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SetCard.h; sourceTree = "<group>"; };
+		420132BA1ADAEB9F005E03EB /* SetCard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SetCard.m; sourceTree = "<group>"; };
+		420132BD1ADAEDDB005E03EB /* DefaultGameController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DefaultGameController.h; sourceTree = "<group>"; };
+		420132BE1ADAEDDB005E03EB /* DefaultGameController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DefaultGameController.m; sourceTree = "<group>"; };
 		42A1EEA31AD37E5300B71472 /* Matchismo 2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Matchismo 2.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		42A1EEA71AD37E5300B71472 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		42A1EEA81AD37E5300B71472 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -92,6 +98,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		420132BC1ADAEDAA005E03EB /* Abstract */ = {
+			isa = PBXGroup;
+			children = (
+				42D63A821AD73B6D00AA5105 /* CardGameController.h */,
+				42D63A831AD73B6D00AA5105 /* CardGameController.m */,
+			);
+			name = Abstract;
+			sourceTree = "<group>";
+		};
 		42A1EE9A1AD37E5300B71472 = {
 			isa = PBXGroup;
 			children = (
@@ -200,10 +215,11 @@
 		42A1EEDD1AD3822400B71472 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				420132BC1ADAEDAA005E03EB /* Abstract */,
 				42D63A851AD73C6300AA5105 /* Collection View */,
-				42D63A821AD73B6D00AA5105 /* CardGameController.h */,
-				42D63A831AD73B6D00AA5105 /* CardGameController.m */,
 				420132B61AD9CF3E005E03EB /* UpdateProtocol.h */,
+				420132BD1ADAEDDB005E03EB /* DefaultGameController.h */,
+				420132BE1ADAEDDB005E03EB /* DefaultGameController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -213,6 +229,8 @@
 			children = (
 				42A1EEDF1AD382AF00B71472 /* DefaultCard.h */,
 				42A1EEE01AD382AF00B71472 /* DefaultCard.m */,
+				420132B91ADAEB9F005E03EB /* SetCard.h */,
+				420132BA1ADAEB9F005E03EB /* SetCard.m */,
 			);
 			name = Cards;
 			sourceTree = "<group>";
@@ -343,6 +361,8 @@
 				42D2E2BB1AD97EFC0056E77E /* ImageHelper.m in Sources */,
 				42A1EEA91AD37E5300B71472 /* main.m in Sources */,
 				42D63A8B1AD73D4800AA5105 /* CardGameDatasource.m in Sources */,
+				420132BF1ADAEDDB005E03EB /* DefaultGameController.m in Sources */,
+				420132BB1ADAEB9F005E03EB /* SetCard.m in Sources */,
 				42A1EEDC1AD3810A00B71472 /* SetCardViewer.m in Sources */,
 				42A1EEE81AD3858500B71472 /* CardViewer.m in Sources */,
 				42D63A841AD73B6D00AA5105 /* CardGameController.m in Sources */,

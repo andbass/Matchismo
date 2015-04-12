@@ -7,8 +7,25 @@
 //
 
 #import <UIKit/UIKit.h>
+
+#import "CardGameDatasource.h"
+#import "CardGameDelegate.h"
+
+#import "Game.h"
+#import "DefaultCard.h"
+
 #import "UpdateProtocol.h"
 
 @interface CardGameController : UIViewController <UpdateProtocol>
+
+@property Game* game;
+
+@property CardGameDatasource* dataSource;
+@property CardGameDelegate* delegate;
+
+@property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
+@property (weak, nonatomic) IBOutlet UILabel *scoreLabel;
+
+- (Game*)generateGame;
 
 @end

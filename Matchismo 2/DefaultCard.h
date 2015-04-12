@@ -8,9 +8,6 @@
 
 #import "Card.h"
 
-
-#import "Card.h"
-
 #define NUMBER_OF_SUITS 4
 typedef NS_ENUM(NSInteger, Suite) {
     Spade = 0,
