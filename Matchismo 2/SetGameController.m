@@ -19,7 +19,7 @@
 }
 
 - (IBAction)addMoreCards:(UIButton *)sender {
-    [self appendCards:3 scorePenalty:true];
+    [self appendCards:NUMBER_OF_CARDS scorePenalty:true];
 }
 
 @end
