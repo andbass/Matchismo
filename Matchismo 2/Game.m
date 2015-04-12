@@ -92,15 +92,23 @@
     self.score -= 1;
 }
 
-- (BOOL)dealMoreCards:(NSInteger)cardsToDeal {
+- (BOOL)dealMoreCards:(NSInteger)cardsToDeal scorePenalty:(BOOL)penalty {
     if ([self.deck.cards count] < cardsToDeal) return false;
     
     for (int i = 0; i < cardsToDeal; i++) {
         [self.cardsOnTable addObject:[self.deck popRandomCard]];
-        self.score -= 1;
+    }
+    
+    if (penalty) {
+        self.score -= cardsToDeal;
     }
     
     return true;
+}
+
+- (void)clearAllCards {
+    [self.selectedCards removeAllObjects];
+    [self.cardsOnTable removeAllObjects];
 }
 
 - (void)clearMatchedCards {

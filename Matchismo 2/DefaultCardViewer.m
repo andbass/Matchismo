@@ -57,8 +57,7 @@ UIVIEW_CONSTRUCTORS(setup)
 }
 
 - (void)drawRect:(CGRect)rect {
-    UIColor* cardFill = (self.card.matched) ? [UIColor grayColor] : [UIColor whiteColor];
-    [super drawRect:rect withCardFill:cardFill];
+    [super drawRect:rect];
     
     CGContextRef ref = UIGraphicsGetCurrentContext();
     
@@ -71,8 +70,7 @@ UIVIEW_CONSTRUCTORS(setup)
     }
     
     if (self.card.isFaceCard) {
-        UIImage* front = (self.card.matched) ? [UIImage imageNamed:[self rankSym] withColor:cardFill]
-                                             : [UIImage imageNamed:[self rankSym]];
+        UIImage* front = [UIImage imageNamed:[self rankSym]];
         
         [front drawInRect:self.imageRect];
     }

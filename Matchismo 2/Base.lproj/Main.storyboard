@@ -89,7 +89,7 @@
                     </tabBar>
                     <connections>
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="2mf-mK-GXp"/>
-                        <segue destination="xdf-hU-fya" kind="show" id="XLP-9e-eIO"/>
+                        <segue destination="xdf-hU-fya" kind="relationship" relationship="viewControllers" id="jNO-Ku-g5W"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TOz-Er-J30" userLabel="First Responder" sceneMemberID="firstResponder"/>

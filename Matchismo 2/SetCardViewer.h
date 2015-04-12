@@ -7,8 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+
 #import "CardViewer.h"
+#import "SetCard.h"
 
 @interface SetCardViewer : CardViewer
+
+@property SetCard* card;
 
 @end

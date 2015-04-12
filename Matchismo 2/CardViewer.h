@@ -35,6 +35,4 @@
 
 - (void)setup;
 
-- (void)drawRect:(CGRect)rect withCardFill:(UIColor*)cardFill;
-
 @end

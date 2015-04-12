@@ -31,8 +31,9 @@
 
 // Adds more cards from the deck onto the table.
 // Incurs a penalty, a point is deducted from the player's score for each card added
-- (BOOL)dealMoreCards:(NSInteger)cardsToDeal;
+- (BOOL)dealMoreCards:(NSInteger)cardsToDeal scorePenalty:(BOOL)penalty;
 
+- (void)clearAllCards;
 - (void)clearMatchedCards;
 
 @end

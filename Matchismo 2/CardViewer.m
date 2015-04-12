@@ -43,7 +43,7 @@
                         NSFontAttributeName : font };
 }
 
-- (void)drawRect:(CGRect)rect withCardFill:(UIColor*)cardFill {
+- (void)drawRect:(CGRect)rect {
     UIBezierPath* path = [UIBezierPath bezierPathWithRoundedRect:self.bounds
                                                    cornerRadius:[self calculateCornerRadius]];
     
@@ -51,7 +51,7 @@
     
     [path addClip];
     
-    [cardFill setFill];
+    [[UIColor whiteColor] setFill];
     [[UIColor blackColor] setStroke];
     
     [path fill];

@@ -18,7 +18,7 @@
 
 - (IBAction)redealCards:(UIButton *)sender {
     NSInteger previousNumberOfCards = [self.game.cardsOnTable count];
-    [self.game.cardsOnTable removeAllObjects];
+    [self.game clearAllCards];
     
     [self.collectionView performBatchUpdates:^{
         NSMutableArray* pathsToDelete = [NSMutableArray new];
@@ -40,7 +40,7 @@
 }
 
 - (void)addCards {
-    if ([self.game dealMoreCards:NUMBER_OF_CARDS]) {
+    if ([self.game dealMoreCards:NUMBER_OF_CARDS scorePenalty:false]) {
         [self.collectionView performBatchUpdates:^{
             NSMutableArray* pathsToAdd = [NSMutableArray new];
             
