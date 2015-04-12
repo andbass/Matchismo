@@ -8,12 +8,12 @@
 
 #import "DefaultGameController.h"
 
-#define NUMBER_OF_CARDS 12
+#define NUMBER_OF_CARDS 8
 
 @implementation DefaultGameController
 
 - (Game*)generateGame {
-    return [[Game alloc] initWithCard:DefaultCard.class cardsOnTable:NUMBER_OF_CARDS];
+    return [[Game alloc] initWithCard:[DefaultCard class] cardsOnTable:NUMBER_OF_CARDS];
 }
 
 - (IBAction)redealCards:(UIButton *)sender {
@@ -29,9 +29,11 @@
         }
         
         [self.collectionView deleteItemsAtIndexPaths:pathsToDelete];
-    } completion:nil];
-    
-    [self performSelector:@selector(addCards) withObject:nil afterDelay:0.75];
+    } completion:^(BOOL fin) {
+        if (fin) {
+            [self addCards];
+        }
+    }];
     
     self.game.score = 0;
     [self updateScore];

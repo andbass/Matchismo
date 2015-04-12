@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		420132BB1ADAEB9F005E03EB /* SetCard.m in Sources */ = {isa = PBXBuildFile; fileRef = 420132BA1ADAEB9F005E03EB /* SetCard.m */; };
 		420132BF1ADAEDDB005E03EB /* DefaultGameController.m in Sources */ = {isa = PBXBuildFile; fileRef = 420132BE1ADAEDDB005E03EB /* DefaultGameController.m */; };
+		420132C21ADAEF59005E03EB /* SetGameController.m in Sources */ = {isa = PBXBuildFile; fileRef = 420132C11ADAEF59005E03EB /* SetGameController.m */; };
 		42A1EEA91AD37E5300B71472 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 42A1EEA81AD37E5300B71472 /* main.m */; };
 		42A1EEAC1AD37E5300B71472 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 42A1EEAB1AD37E5300B71472 /* AppDelegate.m */; };
 		42A1EEB21AD37E5300B71472 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 42A1EEB01AD37E5300B71472 /* Main.storyboard */; };
@@ -44,6 +45,8 @@
 		420132BA1ADAEB9F005E03EB /* SetCard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SetCard.m; sourceTree = "<group>"; };
 		420132BD1ADAEDDB005E03EB /* DefaultGameController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DefaultGameController.h; sourceTree = "<group>"; };
 		420132BE1ADAEDDB005E03EB /* DefaultGameController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DefaultGameController.m; sourceTree = "<group>"; };
+		420132C01ADAEF59005E03EB /* SetGameController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SetGameController.h; sourceTree = "<group>"; };
+		420132C11ADAEF59005E03EB /* SetGameController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SetGameController.m; sourceTree = "<group>"; };
 		42A1EEA31AD37E5300B71472 /* Matchismo 2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Matchismo 2.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		42A1EEA71AD37E5300B71472 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		42A1EEA81AD37E5300B71472 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -220,6 +223,8 @@
 				420132B61AD9CF3E005E03EB /* UpdateProtocol.h */,
 				420132BD1ADAEDDB005E03EB /* DefaultGameController.h */,
 				420132BE1ADAEDDB005E03EB /* DefaultGameController.m */,
+				420132C01ADAEF59005E03EB /* SetGameController.h */,
+				420132C11ADAEF59005E03EB /* SetGameController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -363,6 +368,7 @@
 				42D63A8B1AD73D4800AA5105 /* CardGameDatasource.m in Sources */,
 				420132BF1ADAEDDB005E03EB /* DefaultGameController.m in Sources */,
 				420132BB1ADAEB9F005E03EB /* SetCard.m in Sources */,
+				420132C21ADAEF59005E03EB /* SetGameController.m in Sources */,
 				42A1EEDC1AD3810A00B71472 /* SetCardViewer.m in Sources */,
 				42A1EEE81AD3858500B71472 /* CardViewer.m in Sources */,
 				42D63A841AD73B6D00AA5105 /* CardGameController.m in Sources */,

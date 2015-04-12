@@ -10,7 +10,7 @@
 
 #define NUMBER_OF_SHAPES 3
 typedef NS_ENUM(NSInteger, Shape) {
-    Diamond,
+    DiamondShape,
     Sqiugly,
     Rectangle,
 };
