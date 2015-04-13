@@ -47,7 +47,9 @@ UIVIEW_CONSTRUCTORS(setup)
 - (void)drawCorners {
     CGContextRef ref = UIGraphicsGetCurrentContext();
     
-    NSAttributedString* corner = [[NSAttributedString alloc] initWithString:[self cornerSym] attributes:self.baseTextAttributes];
+    NSAttributedString* corner = [[NSAttributedString alloc] initWithString:[self cornerSym]
+                                                                 attributes:self.baseTextAttributes];
+    
     CGPoint origin = CGPointMake(self.padding.width, self.padding.height);
     
     [corner drawAtPoint:origin];

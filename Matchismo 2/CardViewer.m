@@ -51,7 +51,7 @@
     [super drawRect:rect];
     
     UIBezierPath* path = [UIBezierPath bezierPathWithRoundedRect:self.bounds
-                                                   cornerRadius:self.cornerRadius];
+                                                    cornerRadius:self.cornerRadius];
     
     [path addClip];
     
