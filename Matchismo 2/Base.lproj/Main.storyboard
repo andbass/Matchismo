@@ -29,7 +29,7 @@
                                     <size key="itemSize" width="82" height="103"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="15" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Card" id="kZ3-p1-mnT" customClass="DefaultCardViewer">
@@ -56,6 +56,7 @@
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.50196081399917603" blue="0.25098040699958801" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
+                            <constraint firstItem="JWJ-UJ-hHX" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="Bx1-oR-hSN"/>
                             <constraint firstItem="2mR-0b-a8G" firstAttribute="top" secondItem="JWJ-UJ-hHX" secondAttribute="bottom" constant="8" id="G5p-OZ-fdd"/>
                             <constraint firstItem="JWJ-UJ-hHX" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="HWF-Wi-Ixe"/>
                             <constraint firstItem="JWJ-UJ-hHX" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="Qnk-AL-jdb"/>
@@ -120,7 +121,7 @@
                                     <size key="itemSize" width="82" height="103"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="15" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Card" id="SHt-WP-R4Q" customClass="SetCardViewer">
@@ -154,6 +155,7 @@
                             <constraint firstItem="bSb-l1-Dvy" firstAttribute="top" secondItem="op0-iE-Thb" secondAttribute="bottom" constant="45" id="cus-AO-xfM"/>
                             <constraint firstItem="fT1-vS-bTx" firstAttribute="leading" secondItem="Jwg-qU-DkF" secondAttribute="leading" id="dz8-R8-V9L"/>
                             <constraint firstItem="fT1-vS-bTx" firstAttribute="trailing" secondItem="VSx-yy-rZq" secondAttribute="trailingMargin" id="fLm-nf-nl0"/>
+                            <constraint firstItem="fT1-vS-bTx" firstAttribute="top" secondItem="iox-IS-7Ur" secondAttribute="bottom" id="jMn-6g-YGg"/>
                             <constraint firstItem="op0-iE-Thb" firstAttribute="trailing" secondItem="VSx-yy-rZq" secondAttribute="trailingMargin" id="u1L-8c-XAO"/>
                         </constraints>
                     </view>
