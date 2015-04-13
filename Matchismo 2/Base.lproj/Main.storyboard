@@ -17,14 +17,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2mR-0b-a8G">
-                                <rect key="frame" x="16" y="471" width="58" height="29"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="JWJ-UJ-hHX">
-                                <rect key="frame" x="16" y="20" width="568" height="443"/>
+                                <rect key="frame" x="16" y="20" width="568" height="480"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="LLg-pp-J4F">
                                     <size key="itemSize" width="82" height="103"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -43,8 +37,14 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2mR-0b-a8G">
+                                <rect key="frame" x="16" y="508" width="58" height="29"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P6F-VA-sbn">
-                                <rect key="frame" x="511" y="465" width="73" height="41"/>
+                                <rect key="frame" x="511" y="502" width="73" height="41"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <state key="normal" title="Redeal">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -56,13 +56,15 @@
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.50196081399917603" blue="0.25098040699958801" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
+                            <constraint firstItem="2mR-0b-a8G" firstAttribute="top" secondItem="JWJ-UJ-hHX" secondAttribute="bottom" constant="8" id="4fK-R8-Kaf"/>
                             <constraint firstItem="JWJ-UJ-hHX" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="Bx1-oR-hSN"/>
                             <constraint firstItem="2mR-0b-a8G" firstAttribute="top" secondItem="JWJ-UJ-hHX" secondAttribute="bottom" constant="8" id="G5p-OZ-fdd"/>
                             <constraint firstItem="JWJ-UJ-hHX" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="HWF-Wi-Ixe"/>
                             <constraint firstItem="JWJ-UJ-hHX" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="Qnk-AL-jdb"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="P6F-VA-sbn" secondAttribute="bottom" constant="45" id="XTo-Au-SPx"/>
+                            <constraint firstItem="2mR-0b-a8G" firstAttribute="top" secondItem="JWJ-UJ-hHX" secondAttribute="bottom" constant="8" id="Uul-cK-3fM"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="P6F-VA-sbn" secondAttribute="bottom" constant="8" id="XTo-Au-SPx"/>
                             <constraint firstItem="JWJ-UJ-hHX" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="YpR-Oo-jNJ"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="2mR-0b-a8G" secondAttribute="bottom" constant="51" id="mOf-MI-gbj"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="2mR-0b-a8G" secondAttribute="bottom" constant="14" id="mOf-MI-gbj"/>
                             <constraint firstItem="P6F-VA-sbn" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="w5a-Rv-NMh"/>
                             <constraint firstItem="JWJ-UJ-hHX" firstAttribute="leading" secondItem="2mR-0b-a8G" secondAttribute="leading" id="wI4-Qj-VtM"/>
                         </constraints>
@@ -109,14 +111,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jwg-qU-DkF">
-                                <rect key="frame" x="16" y="471" width="58" height="29"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="fT1-vS-bTx">
-                                <rect key="frame" x="16" y="20" width="568" height="443"/>
+                                <rect key="frame" x="16" y="20" width="568" height="480"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="NHp-rR-xAP">
                                     <size key="itemSize" width="82" height="103"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -135,8 +131,14 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jwg-qU-DkF">
+                                <rect key="frame" x="16" y="508" width="58" height="29"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="op0-iE-Thb">
-                                <rect key="frame" x="471" y="465" width="113" height="41"/>
+                                <rect key="frame" x="471" y="502" width="113" height="41"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <state key="normal" title="Add Cards">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -151,8 +153,8 @@
                             <constraint firstItem="Jwg-qU-DkF" firstAttribute="top" secondItem="fT1-vS-bTx" secondAttribute="bottom" constant="8" id="5FM-AE-uao"/>
                             <constraint firstItem="fT1-vS-bTx" firstAttribute="top" secondItem="iox-IS-7Ur" secondAttribute="bottom" id="Cuj-Rf-ekC"/>
                             <constraint firstItem="fT1-vS-bTx" firstAttribute="leading" secondItem="VSx-yy-rZq" secondAttribute="leadingMargin" id="HZF-Fv-LAg"/>
-                            <constraint firstItem="bSb-l1-Dvy" firstAttribute="top" secondItem="Jwg-qU-DkF" secondAttribute="bottom" constant="51" id="c7x-Jv-Nsa"/>
-                            <constraint firstItem="bSb-l1-Dvy" firstAttribute="top" secondItem="op0-iE-Thb" secondAttribute="bottom" constant="45" id="cus-AO-xfM"/>
+                            <constraint firstItem="bSb-l1-Dvy" firstAttribute="top" secondItem="Jwg-qU-DkF" secondAttribute="bottom" constant="14" id="c7x-Jv-Nsa"/>
+                            <constraint firstItem="bSb-l1-Dvy" firstAttribute="top" secondItem="op0-iE-Thb" secondAttribute="bottom" constant="8" id="cus-AO-xfM"/>
                             <constraint firstItem="fT1-vS-bTx" firstAttribute="leading" secondItem="Jwg-qU-DkF" secondAttribute="leading" id="dz8-R8-V9L"/>
                             <constraint firstItem="fT1-vS-bTx" firstAttribute="trailing" secondItem="VSx-yy-rZq" secondAttribute="trailingMargin" id="fLm-nf-nl0"/>
                             <constraint firstItem="fT1-vS-bTx" firstAttribute="top" secondItem="iox-IS-7Ur" secondAttribute="bottom" id="jMn-6g-YGg"/>
